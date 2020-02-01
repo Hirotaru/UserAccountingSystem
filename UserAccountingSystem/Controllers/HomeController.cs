@@ -3,28 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UserAccountingSystem.DAL;
 
 namespace UserAccountingSystem.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private UserAccountingContext db = new UserAccountingContext();
+        public ActionResult UserList()
         {
-            return View();
+            var users = db.Users.ToList();
+            return View(users);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
