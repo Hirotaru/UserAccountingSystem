@@ -22,6 +22,12 @@ namespace UserAccountingSystem.Controllers
             return View();
         }
 
+        public ActionResult UserSearch(string name)
+        {
+            var filteredUsers = db.Users.Where((u) => u.FirstName.Contains(name));
+            return PartialView("UserList", filteredUsers);
+        }
+
         [HttpPost]
         public ActionResult CreateUser(User user)
         {
