@@ -37,5 +37,12 @@ namespace UserAccountingSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteUser(int id)
+        {
+            db.Users.Remove(db.Users.First(u => u.Id == id));
+            db.SaveChanges();
+            return PartialView("UserList", db.Users);
+        }
+
     }
 }

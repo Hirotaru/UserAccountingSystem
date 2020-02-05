@@ -32,6 +32,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MiddleName)
             </td>
+            <td>
+                @Ajax.ActionLink("Delete", "DeleteUser", new { id = item.Id } , new AjaxOptions() { UpdateTargetId = "UserList"})
+            </td>
         </tr>
 
     }
